@@ -1,0 +1,99 @@
+body {
+  min-height: 100dvh;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+button {
+  border: none;
+}
+
+.button {
+  width: fit-content;
+  font-size: 1rem;
+  padding-inline: 1em;
+  border-radius: 1em;
+  padding-block: 0.4em;
+}
+
+.button-black {
+  color: white;
+  background-color: black;
+}
+
+.button-du {
+  color: black;
+  background-color: orangered;
+}
+
+.navbar {
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link:visited {
+  color: black;
+}
+
+.nav-lisk.active {
+  color: orangered;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid darkgray;
+  background-color: #dbdbdb;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.input.textarea {
+  height: 200px;
+  resize: none;
+}
+
+.input-label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.input-form {
+  flex-direction: column;
+  padding: 0.25rem;
+  display: flex;
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

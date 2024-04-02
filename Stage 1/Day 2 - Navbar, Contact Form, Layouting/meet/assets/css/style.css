@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+button {
+  border: none;
+}
+
+.button {
+  width: fit-content;
+  font-size: 1rem;
+  padding-inline: 1em;
+  border-radius: 1em;
+  padding-block: 0.4em;
+}
+
+.button-black {
+  color: white;
+  background-color: black;
+}
+
+.button-du {
+  color: black;
+  background-color: orangered;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #dbdbdb;
+  display: flex;
+  padding: 0.25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link:visited {
+  color: black;
+}
+
+.nav-lisk.active {
+  color: orangered;
+}
+
+td {
+  padding: 1px;
+  text-align: center;
+}
+.border {
+  border: 1px solid black;
+}
+.mx-auto {
+  margin-inline: auto;
+}
+.my-auto {
+  margin-block: auto;
+}
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+}
+.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.radius-normal {
+  border-radius: 1rem;
+}
+.image {
+  width: 100%;
+  height: auto;
+}
