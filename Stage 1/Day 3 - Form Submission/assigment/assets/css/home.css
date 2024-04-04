@@ -42,3 +42,12 @@
 .download-link {
   display: inline;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .icon-list {
+    margin-inline: auto;
+  }
+}

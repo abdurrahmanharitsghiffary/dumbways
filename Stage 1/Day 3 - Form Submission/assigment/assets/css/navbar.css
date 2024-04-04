@@ -50,3 +50,12 @@ header {
 .contact-button:visited {
   color: rgba(220, 220, 220, 1);
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    padding: 0 0.5rem;
+  }
+  .nav-list {
+    padding: 0.2rem;
+  }
+}
