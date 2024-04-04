@@ -50,10 +50,6 @@ textarea:focus {
   background-image: url("../img/caret-down-solid.svg");
 }
 
-.input-wrapper select option {
-  font-size: 1rem;
-}
-
 .input-wrapper select:focus {
   background-image: url("../img/caret-up-solid.svg");
 }
