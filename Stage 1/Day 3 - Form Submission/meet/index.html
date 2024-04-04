@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <form id="contact-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+        <p class="error-message name"></p>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+        <p class="error-message email"></p>
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" />
+        <p class="error-message phone"></p>
+      </div>
+      <div>
+        <label for="subject">Subject</label>
+        <select name="subject" id="subject">
+          <option value="fe">Frontend Developer</option>
+          <option value="be">Backend Developer</option>
+          <option value="fs">Fullstack Developer</option>
+        </select>
+        <p class="error-message subject"></p>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea
+          style="resize: none"
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <p class="error-message message"></p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script type="text/javascript" src="./assets/script/script.js"></script>
+  </body>
+</html>

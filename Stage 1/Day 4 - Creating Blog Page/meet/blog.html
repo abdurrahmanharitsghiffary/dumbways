@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Form</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <form action="" id="blog-form">
+      <div class="input-wrapper">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="input-wrapper">
+        <label for="content">Content</label>
+        <textarea
+          name="content"
+          id="content"
+          cols="30"
+          rows="10"
+          style="resize: none"
+        ></textarea>
+      </div>
+      <div class="input-wrapper">
+        <label for="file">File</label>
+        <input type="file" id="file" />
+      </div>
+      <button type="button" class="button-dark">Submit</button>
+    </form>
+    <div id="blog-posts"></div>
+    <script type="text/javascript" src="./assets/script/index.js"></script>
+  </body>
+</html>

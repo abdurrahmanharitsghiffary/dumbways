@@ -1,0 +1,78 @@
+.container {
+  margin-inline: auto;
+  margin-block: 2rem;
+  padding-inline: 2rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 600px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.input-wrapper input,
+textarea,
+select {
+  padding: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.625rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+.input-wrapper input:focus,
+select:focus,
+textarea:focus {
+  outline: #006fee solid 2px;
+}
+
+.input-wrapper select {
+  appearance: none;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center right 1rem;
+  background-image: url("../img/caret-down-solid.svg");
+}
+
+.input-wrapper .error-message {
+  color: #f31260;
+}
+
+.input-wrapper input.error,
+textarea.error,
+select.error {
+  outline: 2px solid #f31260;
+}
+
+.input-wrapper select option {
+  font-size: 1rem;
+}
+
+.input-wrapper select:focus {
+  background-image: url("../img/caret-up-solid.svg");
+}
+
+main h1 {
+  font-weight: bolder;
+}
+
+.input-wrapper label {
+  font-weight: bold;
+  font-size: 1rem;
+}

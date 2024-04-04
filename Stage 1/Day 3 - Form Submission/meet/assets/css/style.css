@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: initial;
+}
+
+.error-message {
+  color: #f31260;
+  font-size: 0.75rem;
+}
