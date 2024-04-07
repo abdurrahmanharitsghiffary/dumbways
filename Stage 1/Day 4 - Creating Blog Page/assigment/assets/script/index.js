@@ -44,10 +44,7 @@ const onSubmit = (e) => {
     return;
   }
 
-  const a = document.createElement("a");
-  a.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${data.subject}&body=${data.message}`;
-
-  a.click();
+  window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${data.subject}&body=${data.message}`;
 
   fieldIds.forEach((field) => {
     clearInputValue("#" + field);
