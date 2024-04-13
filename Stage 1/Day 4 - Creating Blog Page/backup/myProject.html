@@ -49,24 +49,24 @@
         <div class="input-wrapper">
           <label for="projectName">Project Name</label>
           <input type="text" name="projectName" id="projectName" />
-          <p class="error-message"></p>
+          <p class="error-message projectName"></p>
         </div>
         <div style="display: flex; gap: 0.5rem; width: 100%">
           <div class="input-wrapper">
             <label for="startDate">Start Date</label>
             <input type="date" name="startDate" id="startDate" />
-            <p class="error-message"></p>
+            <p class="error-message startDate"></p>
           </div>
           <div class="input-wrapper">
             <label for="endDate">End Date</label>
             <input type="date" name="endDate" id="endDate" />
-            <p class="error-message"></p>
+            <p class="error-message endDate"></p>
           </div>
         </div>
         <div class="input-wrapper">
           <label for="description">Description</label>
           <textarea name="description" id="description" rows="8"></textarea>
-          <p class="error-message"></p>
+          <p class="error-message description"></p>
         </div>
         <div
           style="
@@ -77,7 +77,7 @@
           "
         >
           <h3 style="margin-bottom: 0.75rem">Technologies</h3>
-          <div class="checkbox-group" id="technologies">
+          <div class="checkbox-group">
             <div class="checkbox-wrapper">
               <input type="checkbox" id="nodejs" />
               <label for="nodejs">Node JS</label>
@@ -95,12 +95,12 @@
               <label for="ts">Typescript</label>
             </div>
           </div>
-          <p class="error-message"></p>
+          <p class="error-message technologies"></p>
         </div>
         <div class="input-wrapper">
           <label for="image">Upload Image</label>
           <input type="file" id="image" name="image" />
-          <p class="error-message"></p>
+          <p class="error-message image"></p>
         </div>
         <button class="button button-dark end fw-bold">Submit</button>
       </form>

@@ -18,18 +18,17 @@ const errorMessage = {
   techCheckbox: "Must be at least checked one box.",
 };
 
-// menggunakan rest params untuk gabungkan array fields n checkboxs
 [...fieldIds, ...checkboxIds].forEach((field) => {
   const el = document.getElementById(field);
   const isCheckbox = el.getAttribute("type") === "checkbox";
   const onChange = (e) => {
     e.preventDefault();
-    if (isCheckbox && el.checked) {
-      clearErrorMessage("#technologies + .error-message");
+    if (isCheckbox) {
+      clearErrorMessage(".error-message.technologies");
     }
     if (el.value && !isCheckbox) {
       clearFieldError("#" + field);
-      clearErrorMessage(`#${field} + .error-message`);
+      clearErrorMessage(".error-message." + field);
     }
   };
 
@@ -42,7 +41,6 @@ const onSubmit = (e) => {
   const data = { technologies: [] };
   let isInvalid = false;
 
-  // lakukan perulangan pada setiap input yg bukan chechbox
   fieldIds.forEach((field) => {
     data[field] = getInputValue("#" + field);
   });
@@ -58,32 +56,25 @@ const onSubmit = (e) => {
     if (isValueEmpty) {
       isInvalid = true;
 
-      showErrorMessage(`#${key} + .error-message`, errorMessage.empty(key));
+      showErrorMessage(".error-message." + key, errorMessage.empty(key));
       showFieldError("#" + key);
     }
   });
 
-  const isStartDateHigherThanEndDate = data.startDate > data.endDate;
-
-  if (isStartDateHigherThanEndDate) {
+  if (data.startDate > data.endDate) {
     isInvalid = true;
     showErrorMessage(
-      "#startDate + p.error-message",
+      ".error-message.startDate",
       errorMessage.startDateHigherThanEndDate
     );
     showFieldError("#startDate");
   }
 
-  // ketika tidak ada checkbox yg di ceklis
   if (data.technologies.length < 1) {
     isInvalid = true;
-    showErrorMessage(
-      "#technologies + .error-message",
-      errorMessage.techCheckbox
-    );
+    showErrorMessage(".error-message.technologies", errorMessage.techCheckbox);
   }
 
-  // terjadi validasi input yg tidak valid
   if (isInvalid) {
     contactForm.querySelector(".input-wrapper .error").focus();
     return;
@@ -92,14 +83,10 @@ const onSubmit = (e) => {
   projects.push(data);
   renderProjects();
 
-  if (CLEAR_AFTER_SUBMIT) {
+  if (CLEAR_AFTER_SUBMIT)
     fieldIds.forEach((field) => {
       clearInputValue("#" + field);
     });
-    checkboxIds.forEach((checkboxId) => {
-      document.getElementById(checkboxId).checked = false;
-    });
-  }
 };
 
 contactForm.addEventListener("submit", onSubmit);
@@ -107,7 +94,8 @@ contactForm.addEventListener("submit", onSubmit);
 const getInputValue = (selector) => {
   const el = document.querySelector(selector);
 
-  if (el.type === "file" && el?.files?.[0]) {
+  if (el.type === "file") {
+    console.log(el.files, "FIle");
     return URL.createObjectURL(el.files?.[0]);
   } else {
     return el.value;
@@ -168,11 +156,10 @@ const ProjectCard = ({
 }) => {
   const currentUrl = new URL(window.location.href);
 
-  const duration = "1 Month";
+  const duration = getFormattedDuration(getDuration(startDate, endDate));
 
   currentUrl.pathname = "/projectDetail.html";
 
-  // menambahkan query params pada url instance
   currentUrl.searchParams.set("title", title);
   currentUrl.searchParams.set("desc", description);
   currentUrl.searchParams.set("d", duration);
@@ -181,6 +168,7 @@ const ProjectCard = ({
   currentUrl.searchParams.set("es-date", startDate + "," + endDate);
 
   return `<div class="card-project">
+    <a class="detail-link" href="${currentUrl.href}"></a>
     <header class="card-header">
       <img
         src="${src}"
@@ -197,7 +185,6 @@ const ProjectCard = ({
       <ul class="icon-list">
         ${technologies.map((tech) => `<li>${techIcons[tech]}</li>`).join("")}
       </ul>
-      <a class="detail-link" href="${currentUrl.href}"></a>
     </div>
     <footer class="card-footer">
       <button class="button button-dark fw-bold r-sm fullwidth">
@@ -208,4 +195,52 @@ const ProjectCard = ({
       </button>
     </footer>
     </div>`;
+};
+
+const getDuration = (stDate, endDate) => {
+  const start = new Date(stDate);
+  const end = new Date(endDate);
+  const t = end.getTime() - start.getTime();
+
+  const durrInY = t / (1000 * 60 * 60 * 24 * 30.43 * 12);
+
+  const resY = durrInY - Math.floor(durrInY);
+  const month = resY * 12;
+
+  const resM = month - Math.floor(month);
+  const day = resM * 30.43;
+
+  const resD = day - Math.floor(day);
+  const hour = resD * 24;
+
+  const resH = hour - Math.floor(hour);
+  const minute = resH * 60;
+
+  const resMin = minute - Math.floor(minute);
+
+  const second = resMin * 60;
+
+  return {
+    year: Math.floor(durrInY),
+    month: Math.floor(month),
+    day: Math.floor(day),
+    hour: Math.floor(hour),
+    minute: Math.floor(minute),
+    second: Math.floor(second),
+  };
+};
+
+const getFormattedDuration = (durr) => {
+  let count = 0;
+  let durrStr = [];
+  console.log(durr, "Duration");
+  console.log(count);
+  Object.entries(durr).forEach(([key, value]) => {
+    if (value > 0 && count <= 2) {
+      durrStr.push(`${value} ${value > 1 ? key : key + "s"}`);
+      count++;
+    }
+  });
+
+  return durrStr.join(", ");
 };

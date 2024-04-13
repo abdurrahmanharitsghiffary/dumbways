@@ -31,7 +31,6 @@
 .container .header > img {
   max-width: 500px;
   height: 300px;
-  object-fit: cover;
   flex: 1;
 }
 

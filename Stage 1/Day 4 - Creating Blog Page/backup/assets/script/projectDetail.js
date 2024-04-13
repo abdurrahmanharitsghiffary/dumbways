@@ -25,7 +25,6 @@ const esDate = url.searchParams.get("es-date").split(",");
 const startDate = new Date(esDate[0]);
 const endDate = new Date(esDate[1]);
 
-// Value dari slh satu q params undef === redirect
 if (!title || !description || !tech || !d || !img) {
   url.pathname = "/myProject.html";
   window.location.href = url.href;

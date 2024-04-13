@@ -10,7 +10,7 @@ fieldIds.forEach((field) => {
     el.value = e.target.value;
     if (el.value) {
       clearFieldError("#" + field);
-      clearErrorMessage(`#${field} + .error-message`);
+      clearErrorMessage(".error-message." + field);
     }
   };
 
@@ -32,7 +32,7 @@ const onSubmit = (e) => {
       isInvalid = true;
 
       showErrorMessage(
-        `#${key} + .error-message`,
+        ".error-message." + key,
         `${key} field must not be empty.`
       );
       showFieldError("#" + key);

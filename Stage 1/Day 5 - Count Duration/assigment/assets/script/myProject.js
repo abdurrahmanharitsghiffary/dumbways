@@ -2,6 +2,35 @@ const contactForm = document.getElementById("add-project-form");
 const projects = [];
 
 const CLEAR_AFTER_SUBMIT = false;
+const sampleProjects = [
+  {
+    projectName: "Project 1",
+    image:
+      "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    startDate: "2024-12-03T03:24:00",
+    endDate: "2024-12-04T03:25:00",
+    description: "Project pertama saya",
+    technologies: ["ts"],
+  },
+  {
+    projectName: "Project 1",
+    image:
+      "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    startDate: "2023-12-03T03:24:00",
+    endDate: "2024-12-04T03:25:00",
+    description: "Project pertama saya",
+    technologies: ["ts", "nodejs"],
+  },
+  {
+    projectName: "Project 1",
+    image:
+      "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    startDate: "2024-12-03T03:24:10",
+    endDate: "2024-12-04T03:25:50",
+    description: "Project pertama saya",
+    technologies: ["ts"],
+  },
+];
 
 const fieldIds = [
   "projectName",
@@ -18,13 +47,12 @@ const errorMessage = {
   techCheckbox: "Must be at least checked one box.",
 };
 
-// menggunakan rest params untuk gabungkan array fields n checkboxs
 [...fieldIds, ...checkboxIds].forEach((field) => {
   const el = document.getElementById(field);
   const isCheckbox = el.getAttribute("type") === "checkbox";
   const onChange = (e) => {
     e.preventDefault();
-    if (isCheckbox && el.checked) {
+    if (isCheckbox) {
       clearErrorMessage("#technologies + .error-message");
     }
     if (el.value && !isCheckbox) {
@@ -42,7 +70,6 @@ const onSubmit = (e) => {
   const data = { technologies: [] };
   let isInvalid = false;
 
-  // lakukan perulangan pada setiap input yg bukan chechbox
   fieldIds.forEach((field) => {
     data[field] = getInputValue("#" + field);
   });
@@ -63,9 +90,7 @@ const onSubmit = (e) => {
     }
   });
 
-  const isStartDateHigherThanEndDate = data.startDate > data.endDate;
-
-  if (isStartDateHigherThanEndDate) {
+  if (data.startDate > data.endDate) {
     isInvalid = true;
     showErrorMessage(
       "#startDate + p.error-message",
@@ -74,7 +99,6 @@ const onSubmit = (e) => {
     showFieldError("#startDate");
   }
 
-  // ketika tidak ada checkbox yg di ceklis
   if (data.technologies.length < 1) {
     isInvalid = true;
     showErrorMessage(
@@ -83,7 +107,6 @@ const onSubmit = (e) => {
     );
   }
 
-  // terjadi validasi input yg tidak valid
   if (isInvalid) {
     contactForm.querySelector(".input-wrapper .error").focus();
     return;
@@ -96,8 +119,8 @@ const onSubmit = (e) => {
     fieldIds.forEach((field) => {
       clearInputValue("#" + field);
     });
-    checkboxIds.forEach((checkboxId) => {
-      document.getElementById(checkboxId).checked = false;
+    checkboxIds.forEach((field) => {
+      document.getElementById(field).checked = false;
     });
   }
 };
@@ -136,7 +159,7 @@ const renderProjects = () => {
   el.innerHTML = "";
 
   if (projects.length > 0) {
-    el.innerHTML = projects
+    el.innerHTML = [...sampleProjects, ...projects]
       .map((project) =>
         ProjectCard({
           src: project.image,
@@ -168,11 +191,10 @@ const ProjectCard = ({
 }) => {
   const currentUrl = new URL(window.location.href);
 
-  const duration = "1 Month";
+  const duration = getFormattedDuration(getDuration(startDate, endDate));
 
   currentUrl.pathname = "/projectDetail.html";
 
-  // menambahkan query params pada url instance
   currentUrl.searchParams.set("title", title);
   currentUrl.searchParams.set("desc", description);
   currentUrl.searchParams.set("d", duration);
@@ -209,3 +231,70 @@ const ProjectCard = ({
     </footer>
     </div>`;
 };
+
+const getDuration = (stDate, endDate) => {
+  const start = new Date(stDate);
+  const end = new Date(endDate);
+  const t = end.getTime() - start.getTime();
+
+  const durrInY = t / (1000 * 60 * 60 * 24 * 30.43 * 12);
+
+  const resY = durrInY - Math.floor(durrInY);
+  const month = resY * 12;
+
+  const resM = month - Math.floor(month);
+  const day = resM * 30.43;
+
+  const resD = day - Math.floor(day);
+  const hour = resD * 24;
+
+  const resH = hour - Math.floor(hour);
+  const minute = resH * 60;
+
+  const resMin = minute - Math.floor(minute);
+
+  const second = resMin * 60;
+
+  return {
+    year: Math.floor(durrInY),
+    month: Math.floor(month),
+    day: Math.floor(day),
+    hour: Math.floor(hour),
+    minute: Math.floor(minute),
+    second: Math.floor(second),
+  };
+};
+
+const getFormattedDuration = (durr) => {
+  let count = 0;
+  let durrStr = [];
+  console.log(durr);
+
+  // ubah object hasil getDuration menjadi array
+  Object.entries(durr).forEach(([key, value]) => {
+    // mengambil 3 value berurut dari y, m ,d
+    if (value > 0 && count <= 2) {
+      durrStr.push(`${value} ${value > 1 ? key + "s" : key}`);
+      // 1 year, 1 years
+      // output: 1 month, 10 months, 87 months
+      count++;
+    }
+  });
+
+  return durrStr.join(", ");
+};
+
+const el = document.getElementById("project-lists");
+
+el.innerHTML = sampleProjects
+  .map((project) =>
+    ProjectCard({
+      src: project.image,
+      title: project.projectName,
+      description: project.description,
+      technologies: project.technologies,
+      endDate: project.endDate,
+      startDate: project.startDate,
+    })
+  )
+  .join("");
