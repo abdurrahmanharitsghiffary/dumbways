@@ -203,33 +203,64 @@ const ProjectCard = ({
   currentUrl.searchParams.set("es-date", startDate + "," + endDate);
 
   return `<div class="card-project">
-    <header class="card-header">
-      <img
-        src="${src}"
-        alt="${title}"
-      />
-      <h2>${title}</h2>
-      <p>Duration: ${duration}</p>
-    </header>
-    <div class="card-body">
-      <p>
-        ${description}
-      </p>
-      <h3>Technologies</h3>
-      <ul class="icon-list">
-        ${technologies.map((tech) => `<li>${techIcons[tech]}</li>`).join("")}
-      </ul>
-      <a class="detail-link" href="${currentUrl.href}"></a>
-    </div>
-    <footer class="card-footer">
-      <button class="button button-dark fw-bold r-sm fullwidth">
-        Edit
-      </button>
-      <button class="button button-dark fw-bold r-sm fullwidth">
-        Delete
-      </button>
-    </footer>
-    </div>`;
+  <header class="card-header">
+    <img
+      src="${src}"
+      alt="${title}"
+    />
+  </header>
+  <div class="card-body">
+  <div class="title">
+  <h2>${title}</h2>
+  <p>Duration: ${duration}</p>
+  </div>
+    <p>
+      ${description}
+    </p>
+    <h3>Technologies</h3>
+    <ul class="icon-list">
+      ${technologies.map((tech) => `<li>${techIcons[tech]}</li>`).join("")}
+    </ul>
+    <a class="detail-link" href="${currentUrl.href}"></a>
+  </div>
+  <footer class="card-footer">
+    <button class="button button-dark fw-bold r-sm fullwidth">
+      Edit
+    </button>
+    <button class="button button-dark fw-bold r-sm fullwidth">
+      Delete
+    </button>
+  </footer>
+  </div><div class="card-project">
+  <header class="card-header">
+    <img
+      src="${src}"
+      alt="${title}"
+    />
+  </header>
+  <div class="card-body">
+  <div class="title">
+  <h2>${title}</h2>
+  <p>Duration: ${duration}</p>
+  </div>
+    <p>
+      ${description}
+    </p>
+    <h3>Technologies</h3>
+    <ul class="icon-list">
+      ${technologies.map((tech) => `<li>${techIcons[tech]}</li>`).join("")}
+    </ul>
+    <a class="detail-link" href="${currentUrl.href}"></a>
+  </div>
+  <footer class="card-footer">
+    <button class="button button-dark fw-bold r-sm fullwidth">
+      Edit
+    </button>
+    <button class="button button-dark fw-bold r-sm fullwidth">
+      Delete
+    </button>
+  </footer>
+  </div>`;
 };
 
 const getDuration = (stDate, endDate) => {
