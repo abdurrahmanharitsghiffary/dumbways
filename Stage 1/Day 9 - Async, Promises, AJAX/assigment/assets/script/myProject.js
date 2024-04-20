@@ -82,6 +82,9 @@ const onSubmit = async (e) => {
     }
   });
 
+  const file = document.getElementById("image")?.files?.[0];
+  const base64 = await convertFileToBase64(file);
+
   if (data.startDate >= data.endDate) {
     isInvalid = true;
     showErrorMessage(
@@ -110,7 +113,7 @@ const onSubmit = async (e) => {
   }
 
   const { add } = await openDbConnection();
-  await add([data]);
+  await add([{ ...data, image: base64 }]);
 
   renderProjects();
 

@@ -24,3 +24,11 @@ const clearInputValue = (selector) =>
 
 const clearErrorMessage = (selector) =>
   (document.querySelector(selector).innerHTML = "");
+
+const convertFileToBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = (e) => resolve(fileReader.result);
+    fileReader.onerror = (e) => reject(fileReader.error);
+  });
