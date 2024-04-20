@@ -19,10 +19,12 @@ const openDbConnection = () =>
       });
     };
 
-    //   dbOpenRequest.onupgradeneeded = (e) => {
-    //     //   const db = e.target.result;
-    //     //   const objectStore = db.createObjectStore("projects", { autoIncrement: true });
-    //   };
+    dbOpenRequest.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      const objectStore = db.createObjectStore("projects", {
+        autoIncrement: true,
+      });
+    };
 
     if (db) {
       db.onerror = (e) => {
