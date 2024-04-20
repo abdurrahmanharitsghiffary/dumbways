@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Project</title>
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/input.css" />
+    <link rel="stylesheet" href="./assets/css/project.css" />
+  </head>
+  <body>
+    <header id="navbar-container"></header>
+    <main class="container">
+      <form action="" class="form" id="add-project-form">
+        <h1>ADD MY PROJECT</h1>
+        <div class="input-wrapper">
+          <label for="projectName">Project Name</label>
+          <input type="text" name="projectName" id="projectName" />
+          <p class="error-message"></p>
+        </div>
+        <div class="date-wrapper">
+          <div class="input-wrapper">
+            <label for="startDate">Start Date</label>
+            <input type="datetime-local" name="startDate" id="startDate" />
+            <p class="error-message"></p>
+          </div>
+          <div class="input-wrapper">
+            <label for="endDate">End Date</label>
+            <input type="datetime-local" name="endDate" id="endDate" />
+            <p class="error-message"></p>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="description">Description</label>
+          <textarea name="description" id="description" rows="8"></textarea>
+          <p class="error-message"></p>
+        </div>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          "
+        >
+          <h3 style="margin-bottom: 0.75rem">Technologies</h3>
+          <div class="checkbox-group" id="technologies">
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="nodejs" />
+              <label for="nodejs">Node JS</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="nextjs" />
+              <label for="nextjs">Next JS</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="react" />
+              <label for="react">React JS</label>
+            </div>
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="ts" />
+              <label for="ts">Typescript</label>
+            </div>
+          </div>
+          <p class="error-message"></p>
+        </div>
+        <div class="input-wrapper">
+          <label for="image">Upload Image</label>
+          <input type="file" id="image" name="image" />
+          <p class="error-message"></p>
+        </div>
+        <button class="button button-dark end fw-bold">Submit</button>
+      </form>
+      <div class="projects">
+        <h1 class="fw-900">MY PROJECT</h1>
+        <div class="project-lists" id="project-lists"></div>
+      </div>
+    </main>
+    <script
+      type="text/javascript"
+      src="./assets/script/utils/index.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/script/utils/duration.js"
+    ></script>
+    <script type="text/javascript" src="./assets/script/element.js"></script>
+    <script type="text/javascript" src="./assets/script/indexedDb.js"></script>
+    <script type="text/javascript" src="./assets/script/myProject.js"></script>
+    <script type="text/javascript" src="./assets/script/navbar.js"></script>
+  </body>
+</html>
