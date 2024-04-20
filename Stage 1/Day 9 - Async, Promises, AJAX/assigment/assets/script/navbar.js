@@ -17,11 +17,13 @@ const navInit = () => {
         class="nav-brand"
       />
     </li>
-    ${links.map(
-      (link) => `<li>
+    ${links
+      .map(
+        (link) => `<li>
         <a href="${link.src}" class="nav-link">${link.label}</a>
     </li>`
-    )}
+      )
+      .join("")}
   </ul>
   <a href="./contactForm.html" class="contact-button">Contact Me</a>
   <button class="burger-button">
@@ -32,11 +34,13 @@ const navInit = () => {
 </nav>
 <div class="nav-dropdown">
   <ul class="dropdown-list">
-  ${[...links, { src: "./contactForm.html", label: "Contact Me" }].map(
-    (link) => `<li>
+  ${[...links, { src: "./contactForm.html", label: "Contact Me" }]
+    .map(
+      (link) => `<li>
       <a href="${link.src}" class="nav-link">${link.label}</a>
   </li>`
-  )}
+    )
+    .join("")}
   </ul>
 </div>
 `;

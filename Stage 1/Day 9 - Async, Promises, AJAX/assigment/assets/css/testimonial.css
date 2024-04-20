@@ -3,7 +3,7 @@
   margin-bottom: 1rem;
   padding-inline: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
   gap: 1rem;
   place-content: center;
   place-items: stretch center;
