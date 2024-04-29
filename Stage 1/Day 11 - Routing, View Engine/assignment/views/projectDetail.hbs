@@ -1,0 +1,37 @@
+{{#with project}}
+<article class="container pt-4 project">
+  <h1 class="project-title fw-bold">{{title}}</h1>
+  <img class="project-thumbnail" src="{{projectThumbnail}}" alt="My Project" />
+  <aside class="project-details">
+    <section id="duration">
+      <h2 class="fw-bold fs-3">Duration</h2>
+      <span>
+        <i class="fa-regular fa-calendar"></i>
+        <p>
+          <time datetime="2021-01-12">{{toDateString startDate}}</time>
+          -
+          <time datetime="2021-03-11">{{toDateString endDate}}</time>
+        </p>
+      </span>
+      <span><i class="fa-regular fa-clock"></i>
+        <p>Duration: {{duration}}</p></span>
+    </section>
+    <section id="technologies">
+      <h2 class="fw-bold fs-3">Technologies</h2>
+      <ul class="tech-lists">
+        {{#each technologies}}
+        <li>
+          {{#with (getIcons .)}}
+          {{{icon}}}
+          <p>{{label}}</p>
+          {{/with}}
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+  </aside>
+  <p class="project-description">
+    {{description}}
+  </p>
+</article>
+{{/with}}

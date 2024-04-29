@@ -1,0 +1,53 @@
+{{#if projects}}  
+<div class="project-lists pt-3" id="project-lists">
+{{#each projects}}
+   <div class="card-project card mw-100 overflow-hidden">
+    <header class="card-header p-0">
+      <img src="{{projectThumbnail}}" alt="{{title}}" class="broken-image"/>
+    </header>
+    <div class="card-body position-relative mt-0 m-0">
+      <div class="title">
+        <h3 class="fw-bold">{{title}}</h3>
+        <p>Duration: {{getProjectDuration this}}</p>
+      </div>
+      <p>
+        {{description}}
+      </p>
+      <p class="fw-bold fs-4">Technologies</p>
+      <ul class="icon-list p-0">
+        {{#each technologies}}
+          <li
+            style="width:28px; height:28px;"
+            class="d-flex justify-content-center align-items-center"
+          >{{{getCardIcons .}}}</li>
+        {{/each}}
+      </ul>
+      <a href="/projects/{{id}}" style="position:absolute; inset:0;"></a>
+    </div>
+    <footer class="card-footer" data-projectid="${id}">
+      <button class="btn btn-dark fw-bold icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <button class="btn btn-dark fw-bold icon" data-action="delete">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      <a class="btn btn-dark fw-bold" href="/projects/{{id}}/edit">
+        Edit
+      </a>
+      <form method="post" action="/projects/{{id}}?_method=DELETE">
+       <button class="btn btn-dark fw-bold" type="submit">
+        Delete
+       </button>
+      </form>
+    </footer>
+  </div> 
+{{/each}}
+</div>
+{{else}}
+<div class="mx-auto d-flex flex-column gap-2 align-items-center py-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
+  <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3zM7.5 1H3.75L1.5 4h6zm1 0v3h6l-2.25-3zM15 5H1v10h14z"/>
+</svg>
+<p>No project found.</p>
+</div>
+{{/if}}

@@ -1,0 +1,40 @@
+{{#each projects}}
+  <div class="card-project card mw-100 overflow-hidden">
+    <header class="card-header p-0">
+      <img src="{{projectThumbnail}}" alt="{{title}}" />
+    </header>
+    <div class="card-body position-relative mt-0 m-0">
+      <div class="title">
+        <h3 class="fw-bold">{{title}}</h3>
+        <p>Duration: {{getProjectDuration this}}</p>
+      </div>
+      <p>
+        {{description}}
+      </p>
+      <p class="fw-bold fs-4">Technologies</p>
+      <ul class="icon-list p-0">
+        {{#each technologies}}
+          <li
+            style="width:28px; height:28px;"
+            class="d-flex justify-content-center align-items-center"
+          >{{{getCardIcons .}}}</li>
+        {{/each}}
+      </ul>
+      <a href="/projects/{{id}}" style="position:absolute; inset:0;"></a>
+    </div>
+    <footer class="card-footer" data-projectid="${id}">
+      <button class="btn btn-dark fw-bold icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <button class="btn btn-dark fw-bold icon" data-action="delete">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      <button class="btn btn-dark fw-bold" data-action="edit">
+        Edit
+      </button>
+      <button class="btn btn-dark fw-bold" data-action="delete">
+        Delete
+      </button>
+    </footer>
+  </div>
+{{/each}}

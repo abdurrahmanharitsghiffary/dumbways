@@ -1,0 +1,28 @@
+{{#if testimonials}}
+{{#each testimonials}}
+<div class="testimonial">
+<img
+  src="{{thumbnail}}"
+  alt="{{author}}"
+  class="testimonial-image"
+/>
+<p class="testimonial-content">{{content}}</p>
+<div class="testimonial-rating">
+{{{getRatingStar rating}}}
+<span> {{rating}}/5 </span>
+</div>
+<p class="testimonial-created-date">{{getTestimonialDuration createdAt}}</p>
+<div class="testimonial-author">
+  <span>
+    {{#if type}}
+    Company
+    {{/if}}
+    {{author}}</span>
+  <img src="{{thumbnail}}" class="testimonial-avatar"></img>
+</div>
+</div>
+{{/each}}
+{{else}}
+<p class="fw-bold">No result found.</p>
+{{/if}}
+

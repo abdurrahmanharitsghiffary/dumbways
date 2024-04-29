@@ -1,0 +1,85 @@
+<form
+  action="/projects"
+  method="post"
+  name="addProjectForm"
+  class="container-fluid pt-4 max-w-sm d-flex flex-column p-3"
+  id="project-form"
+>
+  <h1 class="fs-2 text-center fw-bold">ADD MY PROJECT</h1>
+  <div class="col">
+    <label class="form-label fw-bold" for="title">Project Name</label>
+    <input class="form-control shadow-sm" type="text" name="title" id="title" />
+    <p class="text-danger"></p>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <label class="form-label fw-bold" for="startDate">Start Date</label>
+      <input
+        class="form-control shadow-sm"
+        type="datetime-local"
+        name="startDate"
+        id="startDate"
+      />
+      <p class="text-danger"></p>
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label fw-bold" for="endDate">End Date</label>
+      <input
+        class="form-control shadow-sm"
+        type="datetime-local"
+        name="endDate"
+        id="endDate"
+      />
+      <p class="text-danger"></p>
+    </div>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="description">Description</label>
+    <textarea
+      class="form-control shadow-sm"
+      name="description"
+      id="description"
+      rows="8"
+    ></textarea>
+    <p class="text-danger"></p>
+  </div>
+  <div class="container-fluid d-flex flex-column p-0">
+    <p class="form-label fw-bold">Technologies</p>
+    <div class="container row" id="technologies">
+      <div class="form-check col-6">
+        <input name="technologies" class="form-check-input shadow-sm" type="checkbox" id="nodejs" value="nodejs"  />
+        <label class="form-check-label fw-bold" for="nodejs">Node JS</label>
+      </div>
+      <div class="form-check col-6">
+        <input name="technologies" class="form-check-input shadow-sm" type="checkbox" id="nextjs" value="nextjs"/>
+        <label class="form-check-label fw-bold" for="nextjs">Next JS</label>
+      </div>
+      <div class="form-check col-6">
+        <input name="technologies" class="form-check-input shadow-sm" type="checkbox" id="react" value="react"/>
+        <label class="form-check-label fw-bold" for="react">React JS</label>
+      </div>
+      <div class="form-check col-6">
+        <input name="technologies" class="form-check-input shadow-sm" type="checkbox" id="ts" value="ts"/>
+        <label class="form-check-label fw-bold" for="ts">Typescript</label>
+      </div>
+    </div>
+    <p class="text-danger"></p>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="image">Upload Image</label>
+    <input
+      class="form-control shadow-sm"
+      type="file"
+      id="image"
+      name="image"
+    />
+    <p class="text-danger"></p>
+  </div>
+  <button class="btn btn-dark w-fit rounded-pill align-self-end fw-bold" id="add-project-submitter">
+    Submit
+  </button>
+</form>
+<div class="projects">
+  <h2 class="fw-bold fs-3">MY PROJECTS</h2>
+    {{>projectCard}}
+</div>

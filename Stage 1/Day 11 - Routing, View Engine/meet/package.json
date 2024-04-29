@@ -1,0 +1,9 @@
+{
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "handlebars": "^4.7.8",
+    "hbs": "^4.2.0"
+  }
+}

@@ -1,0 +1,17 @@
+<h1 class="mx-auto w-100 text-center py-4">
+  {{#if message}}
+    {{message}}
+  {{else}}
+    Something went wrong!
+  {{/if}}
+</h1>
+<p class="mx-auto w-100 text-center">
+  Server responded with status code:
+  <strong>
+    {{#if statusCode}}
+      {{statusCode}}
+    {{else}}
+      500
+    {{/if}}
+  </strong>
+</p>
