@@ -1,10 +1,12 @@
 import { ProjectService } from "../services/projectService.js";
 import { getDuration, getFormattedDuration } from "../lib/utils.js";
 import { Controller } from "./index.js";
+import { getUserId } from "../lib/getUserId.js";
 
 export class ProjectController extends Controller {
   static async index(req, res) {
-    const projects = await ProjectService.getAll();
+    const uId = getUserId(req);
+    const projects = await ProjectService.getAll(uId);
 
     return res.render("projects", {
       meta: {
@@ -40,7 +42,8 @@ export class ProjectController extends Controller {
   }
 
   static async create(req, res) {
-    const projects = await ProjectService.getAll();
+    const uId = getUserId(req);
+    const projects = await ProjectService.getAll(uId);
 
     return res.render("addProject", {
       meta: { title: "Add Project", css: [{ href: "/css/project.css" }] },
@@ -54,8 +57,8 @@ export class ProjectController extends Controller {
 
   static async get(req, res) {
     const { projectId } = req.params;
-
-    const project = await ProjectService.get(projectId, false);
+    const uId = getUserId(req);
+    const project = await ProjectService.get(projectId, false, uId);
     if (!project) return res.render("404", { key: "Project" });
 
     const duration = getFormattedDuration(
@@ -105,8 +108,8 @@ export class ProjectController extends Controller {
 
   static async edit(req, res) {
     const { projectId } = req.params;
-
-    const project = await ProjectService.get(projectId, false);
+    const uId = getUserId(req);
+    const project = await ProjectService.get(projectId, false, uId);
 
     if (!project) return res.render("404", { key: "Project" });
 

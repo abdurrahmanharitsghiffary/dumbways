@@ -13,7 +13,7 @@ export const router = (app) => {
   app.get("/testimonials", TestimonialController.use("index"));
 
   app.use("/projects", projectRouter);
-  app.use("/users", userRouter);
+  // app.use("/users", userRouter);
   app.use("/auth", authRouter);
 
   app.use(GlobalErrorMiddleware.handle);

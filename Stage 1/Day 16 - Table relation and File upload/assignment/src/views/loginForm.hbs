@@ -6,6 +6,11 @@
   style="position: fixed; inset: 0;"
 >
   <h1 class="fs-3 text-center fw-bold pb-4">LOGIN TO YOUR ACCOUNT</h1>
+  {{#if messages.danger}}
+    <div class="alert alert-danger" role="alert">
+      {{messages.danger}}
+    </div>
+  {{/if}}
   {{#if messages.success}}
     <div class="alert alert-success" role="success">
       {{messages.success}}

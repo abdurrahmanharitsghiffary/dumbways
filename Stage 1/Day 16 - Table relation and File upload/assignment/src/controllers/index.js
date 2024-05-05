@@ -1,3 +1,4 @@
+import { getUserId } from "../lib/getUserId.js";
 import { ProjectService } from "../services/projectService.js";
 
 export class Controller {
@@ -27,7 +28,8 @@ export class Controller {
 
 export class HomeController extends Controller {
   static async handle(req, res) {
-    const projects = await ProjectService.getAll();
+    const uId = getUserId(req);
+    const projects = await ProjectService.getAll(uId);
     return res.render("home", {
       meta: {
         title: "Home",

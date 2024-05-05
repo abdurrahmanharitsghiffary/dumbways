@@ -39,16 +39,16 @@ p {
 .tech-lists li i,
 .project span i {
   display: inline-block;
-  font-size: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  font-size: 1.7rem;
+  width: 1.7rem;
+  height: 1.7rem;
 }
 
 .tech-lists li i,
 .tech-lists li img {
-  font-size: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  font-size: 1.7rem;
+  width: 1.7rem;
+  height: 1.7rem;
   display: inline-block;
 }
 

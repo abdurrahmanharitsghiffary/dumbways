@@ -1,0 +1,19 @@
+{{#if authorPicture}}
+  <img
+    src="{{authorPicture}}"
+    width="35px"
+    height="35px"
+    class="rounded-circle bg-secondary position-relative d-flex justify-content-center align-items-center object-fit-cover"
+    style="object-position: center;"
+  />
+{{else}}
+  <span
+    class="rounded-circle bg-secondary position-relative d-flex justify-content-center align-items-center"
+    style="width: 35px; height: 35px;"
+  >
+    <i
+      class="fa-solid fa-user d-flex justify-content-center align-items-center"
+      style="color: #ffffff; font-size: 20px;"
+    ></i>
+  </span>
+{{/if}}

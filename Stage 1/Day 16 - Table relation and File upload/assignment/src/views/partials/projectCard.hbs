@@ -18,8 +18,8 @@
       <ul class="icon-list p-0 pb-2">
         {{#each technologies}}
           <li
-            style="width:28px; height:28px;"
-            class="d-flex justify-content-center align-items-center"
+            style="width:30px; height:30px;"
+            class="d-flex justify-content-center align-items-center card-project-tech"
           >{{{getCardIcons .}}}</li>
         {{/each}}
       </ul>
@@ -29,7 +29,7 @@
     {{#if author}}
     <div class="d-flex p-3 pt-0 justify-content-end align-items-center gap-2">
       <p class="p-0 m-0 fw-bold ">{{author}}</p>
-      <span src="{{authorPicture}}" class="rounded-circle bg-secondary object-fit-cover " style="width:35px; height: 35px; background-image: url('/img/user-regular.svg'); background-size: 18px; background-repeat: no-repeat; background-position: center;">
+      {{>projectAuthor}}
     </div>
     {{/if}}
     {{#if isOwned}}

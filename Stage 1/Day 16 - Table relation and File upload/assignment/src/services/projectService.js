@@ -18,14 +18,8 @@ export class ProjectService extends Service {
 
   static #deleteQuery = `DELETE FROM tb_projects WHERE id=:id`;
 
-  static #userId = "";
-
-  static setUserId(req) {
-    this.#userId = req.session?.user?.id || "";
-  }
-
-  static async getAll() {
-    const userId = this.#userId || null;
+  static async getAll(uId) {
+    const userId = uId || null;
     const data = await sequelize.query(
       userId ? this.#selectAllMeQuery : this.#selectAllQuery,
       {
@@ -42,7 +36,7 @@ export class ProjectService extends Service {
     // console.log(data, "DATA FROM GETALL");
   }
 
-  static async get(id, throwWhenNotFound = true) {
+  static async get(id, throwWhenNotFound = true, uId) {
     const cId = await this.getCorrectId(id);
 
     const [project] = await sequelize.query(this.#selectQuery, {
@@ -55,12 +49,12 @@ export class ProjectService extends Service {
 
     console.log(project, "DATA WITH ID ", id);
 
-    return { ...project, isOwned: project.userId === this.#userId };
+    return { ...project, isOwned: project.userId === uId };
 
     // const project = await Project.findByPk(cId);
   }
 
-  static async create(newData) {
+  static async create(newData, uId) {
     const { technologies, userId, startDate, endDate, ...rest } = newData;
 
     const postgresTechArray = await this.transformJsArrayToPostgresArray(
@@ -71,7 +65,7 @@ export class ProjectService extends Service {
       replacements: {
         ...rest,
         technologies: postgresTechArray,
-        userId: this.#userId,
+        userId: uId,
         startDate: new Date(startDate).toISOString(),
         endDate: new Date(endDate).toISOString(),
       },

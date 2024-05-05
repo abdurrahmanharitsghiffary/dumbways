@@ -3,9 +3,8 @@ import * as bcrypt from "bcrypt";
 import { getEnv } from "../lib/env.js";
 import { Controller } from "./index.js";
 import db from "../database/models/index.js";
-import { Op, QueryTypes } from "sequelize";
+import { QueryTypes } from "sequelize";
 import { flash } from "../lib/flash.js";
-import { ProjectService } from "../services/projectService.js";
 const { User } = db;
 const sequelize = db.sequelize;
 
@@ -86,8 +85,6 @@ export class AuthController extends Controller {
       picture: user.picture,
     };
 
-    ProjectService.setUserId(req);
-
     return flash({
       req,
       res,
@@ -98,7 +95,6 @@ export class AuthController extends Controller {
 
   static async logout(req, res) {
     req.session.destroy();
-    ProjectService.setUserId(req);
     return res.redirect("/auth/login");
   }
 

@@ -1,12 +1,33 @@
-{{#if user.isLoggedIn}}
+{{!-- {{#if user.isLoggedIn}} --}}
   <div class="dropdown-center dropstart">
     <span
       data-bs-toggle="dropdown"
-      class="btn btn-secondary rounded-circle bg-secondary object-fit-cover ms-2"
-      style="width:42px; height: 42px; background-image: url('/img/user-regular.svg'); background-size: 20px; background-repeat: no-repeat; background-position: center;"
-    ></span>
+      class="btn btn-secondary rounded-circle bg-secondary object-fit-cover ms-2 w-fit h-fit overflow-hidden p-0 border-4 border-dark"
+    >
+    {{#if user.picture}}
+  <img
+    src="{{user.picture}}"
+    width="35px"
+    height="35px"
+    class="rounded-circle bg-secondary position-relative d-flex justify-content-center align-items-center object-fit-cover"
+    style="object-position: center;"
+  />
+{{else}}
+  <span
+    class="rounded-circle bg-secondary position-relative d-flex justify-content-center align-items-center"
+    style="width: 40px; height: 40px;"
+  >
+    <i
+      class="fa-solid fa-user"
+      style="color: #ffffff; inset: 0; font-size: 20px;"
+      class="position-absolute"
+    ></i>
+  </span>
+{{/if}}
+    </span>
     <ul class="dropdown-menu">
-      <li>{{>user}}</li>
+      {{#if user.isLoggedIn}}
+<li>{{>user}}</li>
       <li><hr class="dropdown-divider" /></li>
       <li>
         <form
@@ -29,6 +50,11 @@
           if(isConfirmed) e.target.submit() })
         </script>
       </li>
+      {{else}}
+      <li><a class="dropdown-item" href="/auth/login">Login</a></li>
+      <li><a class="dropdown-item" href="/auth/register">Register</a></li>
+      {{/if}}
+      
     </ul>
   </div>
-{{/if}}
+{{!-- {{/if}} --}}

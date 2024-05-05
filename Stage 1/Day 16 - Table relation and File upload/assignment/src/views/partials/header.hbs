@@ -1,12 +1,17 @@
 <header id="navbar-container">
   <nav class="navbar sticky-top navbar-expand-lg bg-light shadow-sm">
     <div class="container-fluid">
+      <a href="/">
       <img
         src="/img/du.png"
         width="50px"
         alt="Dumbways icon"
         class="navbar-brand"
-      />
+      />   
+      </a>
+      <span class="d-lg-none ms-auto me-3">
+      {{>avatarDropdown}}
+      </span>
       <button
         class="navbar-toggler"
         type="button"
@@ -18,6 +23,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+   
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         {{>navLists}}
          {{#unless user.isLoggedIn}}
@@ -44,7 +50,9 @@
           >
           Contact Me
           </a>
-        {{>avatarDropdown}}
+          <span class="d-none d-lg-block">
+         {{>avatarDropdown}}
+          </span>
       </div>
     </div>
   </nav>
