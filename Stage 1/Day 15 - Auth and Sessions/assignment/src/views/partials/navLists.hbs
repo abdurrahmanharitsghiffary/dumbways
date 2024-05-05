@@ -1,0 +1,16 @@
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a href="/" class="nav-link text-dark">Home</a>
+  </li>
+  <li class="nav-item">
+    <a href="/projects" class="nav-link text-dark">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a href="/testimonials" class="nav-link text-dark">Testimonials</a>
+  </li>
+  {{#if user.isLoggedIn}}
+    <li class="nav-item">
+      <a href="/projects/add" class="nav-link text-dark">Add Project</a>
+    </li>
+  {{/if}}
+</ul>

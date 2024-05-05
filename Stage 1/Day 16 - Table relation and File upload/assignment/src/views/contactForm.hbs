@@ -1,0 +1,55 @@
+<form class="d-grid p-3 max-w-sm mx-auto" id="contact-form" novalidate>
+  <h1 class="pt-4 fs-2 fw-bold text-center">GET IN TOUCH</h1>
+  <div class="col">
+    <label class="form-label fw-bold" for="name">Name</label>
+    <input
+      required
+      class="form-control shadow-sm"
+      type="text"
+      id="name"
+      name="name"
+    />
+    <p class="text-danger"></p>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="email">Email</label>
+    <input
+      class="form-control shadow-sm"
+      type="email"
+      id="email"
+      name="email"
+    />
+    <p class="text-danger"></p>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="phone">Phone Number</label>
+    <input class="form-control shadow-sm" type="tel" id="phone" name="phone" />
+    <p class="text-danger"></p>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="subject">Subject</label>
+    <select class="form-select shadow-sm" name="subject" id="subject">
+      <option value="Frontend Developer">Frontend Developer</option>
+      <option value="Backend Developer">Backend Developer</option>
+      <option value="Fullstack Developer">Fullstack Developer</option>
+    </select>
+    <p class="text-danger"></p>
+  </div>
+  <div class="col">
+    <label class="form-label fw-bold" for="message">Your Message</label>
+    <textarea
+      class="form-control shadow-sm"
+      id="message"
+      cols="30"
+      rows="10"
+      name="message"
+    ></textarea>
+    <p class="text-danger"></p>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-dark rounded-pill fw-bold self-end w-fit"
+  >
+    Submit
+  </button>
+</form>

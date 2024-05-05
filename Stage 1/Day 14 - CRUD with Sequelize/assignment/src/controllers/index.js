@@ -11,7 +11,7 @@ export class Controller {
     };
   }
 
-  static use(key) {
+  static use(key = "handle") {
     return this.tryCatch(this[key]);
   }
 }

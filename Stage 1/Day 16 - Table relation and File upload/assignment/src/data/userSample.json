@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1ef578df-66f0-4410-98bb-1d0414141b44",
+    "email": "sample1@gmail.com",
+    "password": "12345678",
+    "username": "samplefirst",
+    "first_name": "First",
+    "last_name": "Sample",
+    "bio": "Hello World!",
+    "picture": "https://images.unsplash.com/photo-1714418701960-06ef1bcfdfbc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "created_at": "2024-04-28T08:32:56.485Z",
+    "updated_at": "2024-04-28T08:32:56.485Z"
+  },
+  {
+    "id": "fd6cb8f9-a87c-4db1-9201-4e2540cc5e69",
+    "email": "sample2@gmail.com",
+    "password": "12345678",
+    "username": "samplesecond",
+    "first_name": "Second",
+    "last_name": "Sample",
+    "bio": "Hello World!",
+    "picture": "https://images.unsplash.com/photo-1714418701960-06ef1bcfdfbc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "created_at": "2024-04-28T08:32:56.485Z",
+    "updated_at": "2024-04-28T08:32:56.485Z"
+  },
+  {
+    "id": "a7a4a839-d781-4e99-8284-4af4963ff3e7",
+    "email": "sample3@gmail.com",
+    "password": "12345678",
+    "username": "samplethree",
+    "first_name": "Third",
+    "last_name": "Sample",
+    "bio": "Hello World!",
+    "picture": "https://images.unsplash.com/photo-1714418701960-06ef1bcfdfbc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "created_at": "2024-04-28T08:32:56.485Z",
+    "updated_at": "2024-04-28T08:32:56.485Z"
+  },
+  {
+    "id": "7c98567f-3ded-4485-b57a-e054a9dfa38a",
+    "email": "sample4@gmail.com",
+    "username": "samplefour",
+    "password": "12345678",
+    "first_name": "Fourth",
+    "last_name": "Sample",
+    "bio": "Hello World!",
+    "picture": "https://images.unsplash.com/photo-1714418701960-06ef1bcfdfbc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "created_at": "2024-04-28T08:32:56.485Z",
+    "updated_at": "2024-04-28T08:32:56.485Z"
+  },
+  {
+    "id": "07317d53-0b91-49f0-90f1-f889a6b5adef",
+    "email": "abdmanharits@gmail.com",
+    "password": "12345678",
+    "username": "abdrah99",
+    "first_name": "Abdurrahman",
+    "last_name": "Harits",
+    "bio": "Hello Dunia!",
+    "picture": "https://static.wikia.nocookie.net/silly-cat/images/c/c3/Chipi_Chipi_Chapa_Chapa_Cat.png/revision/latest?cb=20231228121420",
+    "created_at": "2024-04-28T08:32:56.485Z",
+    "updated_at": "2024-04-28T08:32:56.485Z"
+  }
+]

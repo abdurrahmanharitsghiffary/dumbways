@@ -1,6 +1,6 @@
 "use strict";
-import { Model } from "sequelize";
-export default (sequelize, DataTypes) => {
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
   class Project extends Model {
     /**
      * Helper method for defining associations.
@@ -19,7 +19,7 @@ export default (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
       },
       title: { type: DataTypes.STRING, allowNull: false },
-      description: { type: DataTypes.TEXT, allowNull: true },
+      description: { type: DataTypes.TEXT },
       startDate: { type: DataTypes.DATE, allowNull: false },
       endDate: { type: DataTypes.DATE, allowNull: false },
       image: { type: DataTypes.STRING, allowNull: false },
@@ -27,6 +27,8 @@ export default (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      timestamps: true,
+      tableName: "tb_projects",
       modelName: "Project",
     }
   );

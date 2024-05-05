@@ -1,0 +1,53 @@
+<form
+  method="post"
+  action="/auth/login"
+  id="loginForm"
+  class="container-fluid pt-4 max-w-sm d-flex flex-column justify-content-center"
+  style="position: fixed; inset: 0;"
+>
+  <h1 class="fs-3 text-center fw-bold pb-4">LOGIN TO YOUR ACCOUNT</h1>
+  {{#if messages.success}}
+    <div class="alert alert-success" role="success">
+      {{messages.success}}
+    </div>
+  {{/if}}
+  <div>
+    <label class="form-label fw-bold" for="email">Email</label>
+    <input
+      class="form-control shadow-sm"
+      type="email"
+      name="email"
+      id="email"
+      value="{{email}}"
+    />
+    <p class="text-danger"></p>
+  </div>
+  <div>
+    <label class="form-label fw-bold" for="password">Password</label>
+    <div class="input-group" id="password-input">
+      <input
+        class="form-control shadow-sm"
+        type="password"
+        name="password"
+        id="password"
+        value="{{password}}"
+      />
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        data-toggler="password"
+      ><i class="fa-regular fa-eye"></i></button>
+    </div>
+
+    <p class="text-danger"></p>
+  </div>
+  {{#if messages.error}}
+    <div class="alert alert-danger" role="alert">
+      {{messages.error}}
+    </div>
+  {{/if}}
+  <button
+    type="submit"
+    class="btn btn-dark rounded-pill w-fit fw-bold ms-auto"
+  >Submit</button>
+</form>

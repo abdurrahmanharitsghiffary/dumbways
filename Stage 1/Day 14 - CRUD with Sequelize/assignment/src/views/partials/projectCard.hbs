@@ -34,7 +34,7 @@
       <a class="btn btn-dark fw-bold" href="/projects/{{id}}/edit">
         Edit
       </a>
-      <form method="post" action="/projects/{{id}}?_method=DELETE">
+      <form method="post" action="/projects/{{id}}?_method=DELETE" onsubmit="deleteProject(event)">
        <button class="btn btn-dark fw-bold" type="submit">
         Delete
        </button>

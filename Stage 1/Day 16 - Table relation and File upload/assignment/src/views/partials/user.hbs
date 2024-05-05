@@ -1,0 +1,10 @@
+{{#if user.isLoggedIn}}
+  <div
+    class="d-flex gap-2 justify-content-between align-items-center dropdown-item"
+  >
+    <span class="fw-bold">
+      Hello,
+      {{user.username}}
+    </span>
+  </div>
+{{/if}}

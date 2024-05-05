@@ -4,9 +4,9 @@ import { ContactController, HomeController } from "../controllers/index.js";
 import { GlobalErrorMiddleware } from "../middlewares/error.js";
 
 export const router = (app) => {
-  app.get("/", HomeController.use("handle"));
+  app.get("/", HomeController.use());
 
-  app.get("/contact", ContactController.use("handle"));
+  app.get("/contact", ContactController.use());
 
   app.get("/testimonials", TestimonialController.use("index"));
 

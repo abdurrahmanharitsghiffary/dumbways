@@ -1,0 +1,46 @@
+{{#with project}}
+<article class="container-fluid d-flex gap-2 flex-column project">
+<h1 class="project-title fw-bold fs-2 mb-4 mt-2">{{title}}</h1>
+<div class="row p-2">
+ <img class="project-thumbnail broken-image shadow-md rounded col col-sm-7 p-0 mx-auto " src="{{image}}" alt="My Project" />
+  <aside class="project-details col col-sm-5 pt-4 pt-sm-0">
+    <section id="duration" class="mb-2">
+      <h2 class="fw-bold fs-5 mb-2">Duration</h2>
+      <span>
+        <i class="fa-regular fa-calendar"></i>
+        <p>
+          <time datetime="2021-01-12">{{toDateString startDate}}</time>
+          -
+          <time datetime="2021-03-11">{{toDateString endDate}}</time>
+        </p>
+      </span>
+      <span class="mt-2"><i class="fa-regular fa-clock"></i>
+        <p>Duration: {{duration}}</p></span>
+    </section>
+    <section id="technologies" class="mb-2">
+      <h2 class="fw-bold fs-5 mb-0">Technologies</h2>
+      <ul class="tech-lists">
+        {{#each technologies}}
+        <li>
+          {{#with (getIcons .)}}
+          {{{icon}}}
+          <p>{{label}}</p>
+          {{/with}}
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+    <section id="author">
+      <h2 class="fw-bold fs-5 mb-0">Author</h2>
+      <div class="d-flex gap-2 align-items-center ">
+       {{>avatar}} <p class="fw-bold">{{author}}</p> 
+      </div>
+    </section>
+  </aside>
+</div>
+  <p class="project-description col mt-4 p-2">
+    {{description}}
+  </p>
+</article>
+
+{{/with}}

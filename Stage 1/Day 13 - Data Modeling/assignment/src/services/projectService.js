@@ -76,11 +76,11 @@ export class ProjectService {
   }
 
   static async getWithRawQuery(id) {
-    const query = `SELECT id, name as title, start_date as "startDate", end_date as "endDate", description, technologies, image, created_at as "createdAt", updated_at as "updatedAt" FROM tb_projects`;
+    const query = `SELECT id, name as title, start_date as "startDate", end_date as "endDate", description, technologies, image FROM tb_projects`;
 
     if (id) {
       return await sequelize.query(
-        `SELECT id, name as title, start_date as "startDate", end_date as "endDate", description, technologies, image, created_at as "createdAt", updated_at as "updatedAt" FROM tb_projects WHERE id = :id`,
+        `SELECT id, name as title, start_date as "startDate", end_date as "endDate", description, technologies, image FROM tb_projects WHERE id = :id`,
         { replacements: { id }, type: QueryTypes.SELECT }
       );
     }

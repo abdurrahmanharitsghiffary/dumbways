@@ -1,7 +1,9 @@
 export class Service {
   static async transformJsArrayToPostgresArray(arr) {
-    if (!(arr instanceof Array)) return "{}";
-    return `{${arr.map((t) => `"${t}"`).join(",")}}`;
+    return new Promise((resolve) => {
+      if (!(arr instanceof Array)) return resolve("{}");
+      return resolve(`{${arr.map((t) => `"${t}"`).join(",")}}`);
+    });
   }
 
   static async getCorrectId(id) {
@@ -11,9 +13,4 @@ export class Service {
     }
     return cId;
   }
-
-  //   static convertDateToTimestamp(date) {
-  //     const d = new Date(date);
-  //     return d.toISOString().split("T").join(" ");
-  //   }
 }

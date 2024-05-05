@@ -1,0 +1,34 @@
+{{#if user.isLoggedIn}}
+  <div class="dropdown-center dropstart">
+    <span
+      data-bs-toggle="dropdown"
+      class="btn btn-secondary rounded-circle bg-secondary object-fit-cover ms-2"
+      style="width:42px; height: 42px; background-image: url('/img/user-regular.svg'); background-size: 20px; background-repeat: no-repeat; background-position: center;"
+    ></span>
+    <ul class="dropdown-menu">
+      <li>{{>user}}</li>
+      <li><hr class="dropdown-divider" /></li>
+      <li>
+        <form
+          action="/auth/logout?_method=DELETE"
+          method="post"
+          class="dropdown-item position-relative"
+          id="logoutForm"
+        >
+          Logout
+          <button
+            type="submit"
+            style="opacity: 0; position: absolute; inset: 0;"
+          >
+          </button>
+        </form>
+        <script>
+          const logoutForm = document.getElementById("logoutForm")
+          logoutForm.addEventListener("submit", async(e) => { e.preventDefault()
+          const isConfirmed = await bsConfirm({title:"Logout", body:"Logout fromthis account?", confirmLabel:"Logout", confirmColor:"btn-danger"})
+          if(isConfirmed) e.target.submit() })
+        </script>
+      </li>
+    </ul>
+  </div>
+{{/if}}

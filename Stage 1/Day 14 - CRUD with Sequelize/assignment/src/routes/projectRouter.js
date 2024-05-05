@@ -1,7 +1,9 @@
 import express from "express";
 import { ProjectController } from "../controllers/projectControllers.js";
+import { Validate } from "../middlewares/validate.js";
 
 const router = express.Router();
+const validateUUID = Validate.isUUID("projectId");
 
 router
   .route("/")
@@ -12,10 +14,12 @@ router.route("/add").get(ProjectController.use("create"));
 
 router
   .route("/:projectId")
-  .get(ProjectController.use("get"))
-  .delete(ProjectController.use("delete"))
-  .patch(ProjectController.use("update"));
+  .get(validateUUID, ProjectController.use("get"))
+  .delete(validateUUID, ProjectController.use("delete"))
+  .patch(validateUUID, ProjectController.use("update"));
 
-router.route("/:projectId/edit").get(ProjectController.use("edit"));
+router
+  .route("/:projectId/edit")
+  .get(validateUUID, ProjectController.use("edit"));
 
 export default router;
